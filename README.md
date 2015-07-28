@@ -49,6 +49,15 @@ The data is fetch from an separate API server. We won't implement that part but 
 I will try to write this [README.md] sections with corresponding git commit changes. So a new section on this page will map to a new commit in git history. That is, I will constantly do `git rebase -i 2aed179e10` against the initial commit to make it more senseble when read from the git history.
 
 
+# Getting Started
+
+The first thing for a [Node.js] project after `git init` is adding a [package.json] to your repo. Luckily, [npm] has already built-in an interactive generator for us:
+
+```sh
+npm init
+```
+
+
 
 
 
@@ -69,3 +78,5 @@ Ping [@tomchentw] on Twitter
 [Webpack]: http://webpack.github.io/docs/what-is-webpack.html
 [README.md]: https://github.com/tomchentw/redux-universal/blob/master/README.md
 [@tomchentw]: https://twitter.com/tomchentw
+[package.json]: https://docs.npmjs.com/files/package.json
+[npm]: https://www.npmjs.com/
