@@ -1,0 +1,34 @@
+{
+  "name": "redux-universal",
+  "version": "1.0.0",
+  "description": "Redux for universal app makes awesome",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomchentw/redux-universal.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "universal"
+  ],
+  "author": {
+    "name": "tomchentw",
+    "email": "developer@tomchentw.com",
+    "url": "https://github.com/tomchentw"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomchentw/redux-universal/issues"
+  },
+  "homepage": "https://github.com/tomchentw/redux-universal#readme",
+  "devDependencies": {
+    "babel-core": "^5.8.12",
+    "babel-eslint": "^4.0.5",
+    "eslint": "^0.24.1",
+    "eslint-plugin-react": "^3.1.0"
+  }
+}
