@@ -1,6 +1,8 @@
 import {join as joinPath} from "path";
 import webpack from "webpack";
 
+import fakeDataProvider from "./utils/fake-data-provider";
+
 const resolve = {
   extensions: ["", ".js", ".jsx", ".json"],
 };
@@ -43,6 +45,7 @@ export const client = {
     new webpack.DefinePlugin({
       "typeof window": JSON.stringify("object"),
     }),
+    fakeDataProvider,
   ],
   progress: true,
   stylus: {
@@ -111,5 +114,8 @@ export const server = {
     new webpack.DefinePlugin({
       "typeof window": JSON.stringify(undefined),
     }),
+    fakeDataProvider,
   ],
 };
+
+
