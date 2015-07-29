@@ -37,4 +37,5 @@ node_modules
 .lock-wscript
 
 ### Project ###
-
+public/build/
+server/build/

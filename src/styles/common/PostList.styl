@@ -1,0 +1,111 @@
+@import "nib"
+@import "../common"
+
+post-like-size = 52px
+pin-icon-size = 16px
+
+.post-list__item
+  display: block
+  border-top: 1px solid color-divider
+  text-decoration: none
+  color: inherit
+  padding: padding-medium
+
+.post-list__header
+  clearfix()
+  .post-list__item--pinned &
+    margin-right: pin-icon-size
+    padding-right: padding-small
+
+.post-list__title
+  font-weight: bold
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  height: 1em
+  line-height: 1em
+  display: block
+  color: color-accent
+  float: left
+  width: 100%
+  .post-list__item:visited &
+    color: color-text
+
+.post-list__pin-icon
+  color: color-red
+  float: right
+  width: pin-icon-size
+  height: @width
+  text-align: center
+  font-size: pin-icon-size
+  margin-right: (pin-icon-size + padding-small) * -1
+
+.post-list__content
+  position: relative
+  padding-left: post-like-size + padding-medium
+  min-height: post-like-size
+
+.post-list__left
+  width: post-like-size
+  height: @width
+  line-height: @height
+  position: absolute
+  top: 0
+  left: 0
+
+.post-list__like
+  border-radius: 50%
+  text-align: center
+  color: #fff
+  font-weight: 300
+  font-size: 16px
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  white-space: nowrap
+
+.post-list__avatar
+  width: 24px
+  height: @width
+  position: absolute
+  right: -6px
+  bottom: @right
+
+.post-list__excerpt
+  color: color-gray
+  font-size: 0.9em
+  line-height: line-height
+  margin: 0.5em 0
+
+.post-list__footer
+  line-height: 1
+  position: relative
+
+.post-list__author
+  color: color-gray
+  font-size: 0.9em
+  line-height: 1
+  height: 1em
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+  width: 75%
+
+.post-list__forum
+  &:after
+    content: "/"
+    padding: 0 0.5em
+    font-weight: normal
+
+.post-list__comment
+  font-size: 0.9em
+  font-weight: bold
+  align-self: flex-end
+  white-space: nowrap
+  position: absolute
+  top: 0
+  right: 0
+  .fa
+    margin-right: 0.5em

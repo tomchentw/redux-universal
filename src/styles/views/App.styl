@@ -1,0 +1,42 @@
+@import "nib"
+@import "~normalize.css"
+@import "../common"
+
+html
+  box-sizing: border-box
+
+*, *::before, *::after, input[type="search"]
+  box-sizing: inherit
+
+body
+  font-size: font-size-base
+  font-family: font-sans
+  background: color-background
+  color: color-text
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+html, body, #root
+  height: 100%
+
+.app
+  padding-top: header-height
+
+.app__loading
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: #fff
+
+.app__loading-progress
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  margin: auto
+  width: 15%
+  height: 15%
