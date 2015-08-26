@@ -8,9 +8,11 @@ if ("undefined" !== typeof window) {
   require("../../styles/views/ForumListPageView.styl");
 }
 
-@connect(state => ({
-  forumList: state.ForumReducer.get("forumList"),
-}))
+@connect(function mapStateToProps (state) {
+  return {
+    forumList: state.ForumReducer.get("forumList"),
+  };
+})
 export default class ForumListPageView extends React.Component {
 
   static contextTypes = {

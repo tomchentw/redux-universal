@@ -23,7 +23,7 @@ function fetchData (dispatch) {
     return fetchData(store.dispatch);
   }
 })
-@connect(state => {
+@connect(function mapStateToProps (state) {
   const { AppReducer } = state;
 
   return {

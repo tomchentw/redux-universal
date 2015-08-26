@@ -25,15 +25,22 @@ function fetchData (dispatch, forumId) {
     return fetchData(store.dispatch, forumId);
   }
 })
-@connect((state, props) => {
+@connect(function mapStateToProps (state) {
   const { ForumReducer, PostReducer } = state;
-  const { params: { forumId } } = props;
+
+  return {
+    ForumReducer,
+    PostReducer,
+  };
+}, null, function mergeProps ({ForumReducer, PostReducer}, dispatchProps, ownProps) {
+  const { params: { forumId } } = ownProps;
 
   const forum = ForumReducer.get("forumList").find(item => forumId === item.get("id"));
   const posts = PostReducer.getIn(["postIdsByForumId", forumId], new OrderedSet())
     .map(id => PostReducer.getIn(["postById", id]));
 
   return {
+    ...ownProps,
     forum,
     posts,
   };

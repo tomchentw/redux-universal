@@ -24,13 +24,19 @@ function fetchData (dispatch, postId) {
     return fetchData(store.dispatch, postId);
   }
 })
-@connect((state, props) => {
+@connect(function mapStateToProps (state) {
   const { PostReducer } = state;
-  const { params: { postId } } = props;
+
+  return {
+    PostReducer,
+  };
+}, null, function mergeProps ({PostReducer}, dispatchProps, ownProps) {
+  const { params: { postId } } = ownProps;
 
   const post = PostReducer.getIn(["postById", postId]);
 
   return {
+    ...ownProps,
     post,
   };
 })
