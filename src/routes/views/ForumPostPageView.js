@@ -25,14 +25,9 @@ function fetchData (dispatch, forumId) {
     return fetchData(store.dispatch, forumId);
   }
 })
-@connect(function mapStateToProps (state) {
+@connect(function mapStateToProps (state, ownProps) {
   const { ForumReducer, PostReducer } = state;
 
-  return {
-    ForumReducer,
-    PostReducer,
-  };
-}, null, function mergeProps ({ForumReducer, PostReducer}, dispatchProps, ownProps) {
   const { params: { forumId } } = ownProps;
 
   const forum = ForumReducer.get("forumList").find(item => forumId === item.get("id"));
@@ -40,28 +35,28 @@ function fetchData (dispatch, forumId) {
     .map(id => PostReducer.getIn(["postById", id]));
 
   return {
-    ...ownProps,
     forum,
     posts,
   };
+}, {// mapDispatchToProps
+  setTitle: AppActions.setTitle,
 })
 export default class ForumPostPageView extends React.Component {
 
   static contextTypes = {
-    store: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
   }
 
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
     forum: PropTypes.object,
     posts: PropTypes.object,
+    setTitle: PropTypes.func.isRequired,
   }
 
   componentWillMount () {
-    const { dispatch, forum } = this.props;
+    const { forum, setTitle } = this.props;
 
-    dispatch(AppActions.setTitle(`${ forum.get("title") } | ForumPostPageView`));
+    setTitle(`${ forum.get("title") } | ForumPostPageView`);
   }
 
   render () {
