@@ -24,38 +24,34 @@ function fetchData (dispatch, postId) {
     return fetchData(store.dispatch, postId);
   }
 })
-@connect(function mapStateToProps (state) {
+@connect(function mapStateToProps (state, ownProps) {
   const { PostReducer } = state;
 
-  return {
-    PostReducer,
-  };
-}, null, function mergeProps ({PostReducer}, dispatchProps, ownProps) {
   const { params: { postId } } = ownProps;
 
   const post = PostReducer.getIn(["postById", postId]);
 
   return {
-    ...ownProps,
     post,
   };
+}, {// mapDispatchToProps
+  setTitle: AppActions.setTitle,
 })
 @propSliceWillChange(["post"], (props) => {
-  const { dispatch, post } = props;
+  const { post, setTitle } = props;
   if (post) {
 
-    dispatch(AppActions.setTitle(`${ post.get("title") } | PostPageView`));
+    setTitle(`${ post.get("title") } | PostPageView`);
   }
 })
 export default class PostPageView extends React.Component {
 
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
     post: PropTypes.object.isRequired,
+    setTitle: PropTypes.func.isRequired,
   }
 
   static contextTypes = {
-    store: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
   }
 
