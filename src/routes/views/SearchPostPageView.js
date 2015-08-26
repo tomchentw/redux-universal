@@ -32,13 +32,9 @@ function fetchData (dispatch, term) {
     fetchData(dispatch, query.q);
   }
 })
-@connect(function mapStateToProps (state) {
+@connect(function mapStateToProps (state, ownProps) {
   const { PostReducer } = state;
 
-  return {
-    PostReducer,
-  };
-}, null, function mergeProps ({PostReducer}, dispatchProps, ownProps) {
   const { location: { query } } = ownProps;
 
   let posts = new OrderedSet();
@@ -49,7 +45,6 @@ function fetchData (dispatch, term) {
   }
 
   return {
-    ...ownProps,
     posts,
   };
 })
