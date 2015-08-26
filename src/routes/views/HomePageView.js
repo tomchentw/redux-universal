@@ -1,20 +1,25 @@
 import React, { PropTypes } from "react";
 
+import {connect} from "../../decorators";
 import * as AppActions from "../../actions/AppActions";
 
 if ("undefined" !== typeof window) {
   require("../../styles/views/HomePageView.styl");
 }
 
+@connect(null // mapStateToProps
+, {// mapDispatchToProps
+  setTitle: AppActions.setTitle,
+})
 export default class HomePageView extends React.Component {
 
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    setTitle: PropTypes.func.isRequired,
   }
 
   componentWillMount () {
-    const { dispatch } = this.props;
-    dispatch(AppActions.setTitle("HomePageView", false));
+    const { setTitle } = this.props;
+    setTitle("HomePageView", false);
   }
 
   render() {
