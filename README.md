@@ -16,7 +16,7 @@
 
 I'd like to share some ideas found in the repo, here you go:
 
-* [Redux-Universal]: https://medium.com/@tomchentw/redux-universal-576fb9475b5b
+* [Redux-Universal](https://medium.com/@tomchentw/redux-universal-576fb9475b5b)
 
 
 ## Usage
