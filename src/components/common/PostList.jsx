@@ -9,8 +9,6 @@ if ("undefined" !== typeof window) {
 
 export default class PostList extends React.Component {
   static propTypes = {
-    forumAlias: PropTypes.string.isRequired,
-    forumId: PropTypes.string.isRequired,
     posts: PropTypes.object.isRequired,
   }
 
@@ -28,7 +26,7 @@ export default class PostList extends React.Component {
 
   renderPost = (item) => {
     return (
-      <Link key={item.id} className="post-list__item" to={`/posts/${item.get("id")}`}>
+      <Link key={item.get("id")} className="post-list__item" to={`/posts/${item.get("id")}`}>
         <header className="post-list__header">
           <strong className="post-list__title">{item.get("title")}</strong>
         </header>
