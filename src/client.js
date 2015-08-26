@@ -24,8 +24,12 @@ store.dispatch({ type: ActionTypes.REHYDRATE });
 
 const childrenRoutes = require("./routes")(store);
 
-React.render((
-  <Provider store={store}>
-    {() => <Router history={history} children={childrenRoutes}/>}
-  </Provider>
-), document.getElementById("root"));
+const JAVASCRIPT_IS_ENABLED = true; // Change this to false to see how it works?
+
+if (JAVASCRIPT_IS_ENABLED) {
+  React.render((
+    <Provider store={store}>
+      {() => <Router history={history} children={childrenRoutes}/>}
+    </Provider>
+  ), document.getElementById("root"));
+}
