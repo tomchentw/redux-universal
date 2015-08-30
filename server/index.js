@@ -18,7 +18,7 @@ if (IS_PRODUCTION) {
 server.get("/*", require("./render"));
 
 // Catch server error
-server.use((err, req, res) => {
+server.use((err, req, res, next) => {
   console.error("Error on request %s %s", req.method, req.url);
   console.error(err.stack);
   res.status(500).send("Server error");
